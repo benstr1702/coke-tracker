@@ -1,0 +1,17 @@
+
+#logo{
+    width: 70px;
+    height:70px;
+    margin-left: 3%;
+    border: 0px;
+    margin-right: 4%;
+    border-radius: 50%  ;
+}
+
+#search-bar{
+    width: 50vw;
+}
+
+#links{
+    margin-right: 2%;
+}
