@@ -23,6 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       console.log(`${searchTerm} not found`);
     }
+    fetch('https://flagcdn.com/en/codes.json')
+    .then(response => response.json())
+    .then(data => {
+    // compare the input to the data and display the flag
+    //convert the json data to keys and values
+    //Yes, it's possible to use the country flag code from the JSON data to display the actual SVG flag. You can use the flagcdn.com service to get the URL of the SVG flag for a given country code.
+
+    //Here's an example code snippet that demonstrates how to use the JSON data to display the flag for a given country code:
+    //This code fetches the country codes data from the JSON file, and then uses the countryCode variable to get the URL of the SVG flag for the United States. The flagUrl variable uses string interpolation to construct the URL, and the w80 part of the URL specifies the width of the flag in pixels.
+
+////The code then creates an <img> element to display the flag, sets the src attribute of the <img> element to the flagUrl variable, and adds the <img> element to the flagContainer element on the page.
+
+//You can replace the countryCode variable with any country code from the JSON data to display the flag for that country
+
+  })
+  .catch(error => {
+    console.error('Error fetching country codes:', error);
+  });
   });
   
   searchBar.addEventListener('keydown',(event)=>{
@@ -31,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       searchButton.click();
     }
   });
+  
   
   
 });
