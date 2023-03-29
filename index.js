@@ -7,16 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const keys = Object.keys(jsonData);
     const price = Object.values(jsonData);
     const searchBar = document.getElementById('search-bar'); 
-    searchBar.addEventListener("keyup", () => {
-      var searchOptions = document.getElementById('search-option');
-      if (searchBar.value.length > 0 ){
-        searchOptions.style.display = "block";
-
+    const searchButton = document.getElementById('search-button' );
+    searchButton.disabled = true;
+    searchBar.addEventListener('input', ()=>{
+    
+      if (searchBar.value.length < 4) {
+        searchButton.disabled = true;
       } else {
-        searchOptions.style.display = "none";
+        searchButton.disabled = false;
       }
+    
+        
     });
-  
-      
+
+    
     
 });
