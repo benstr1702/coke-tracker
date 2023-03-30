@@ -5,7 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const price = Object.values(jsonData);
   const searchBar = document.getElementById('search-bar'); 
   const searchButton = document.getElementById('search-button' );
+  const cardText = document.getElementById('card-text');
+
+
+  //disable button by default 
   searchButton.disabled = true;
+
+  //enable button if user inputs more than 4 letters
   searchBar.addEventListener('input', ()=>{
     if (searchBar.value.length < 4) {
       searchButton.disabled = true;
@@ -13,30 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
       searchButton.disabled = false;
     }
   });
+
+
+  //add event that listens to button click 
   searchButton.addEventListener('click', () => {
 
     const searchTerm = searchBar.value.toUpperCase();
-    
+    const countryID = Object.keys
     if (keys.includes(searchTerm)) {
       let index = keys.indexOf(searchTerm);
+      document.getElementById('warning').style.display = 'none';
       console.log(`The price of coke in ${searchTerm} is ${price[index]} $`);
     } else {
-      console.log(`${searchTerm} not found`);
+      document.getElementById('warning').style.display = 'block';
     }
+
     fetch('https://flagcdn.com/en/codes.json')
     .then(response => response.json())
     .then(data => {
-    // compare the input to the data and display the flag
-    //convert the json data to keys and values
-    //Yes, it's possible to use the country flag code from the JSON data to display the actual SVG flag. You can use the flagcdn.com service to get the URL of the SVG flag for a given country code.
-
-    //Here's an example code snippet that demonstrates how to use the JSON data to display the flag for a given country code:
-    //This code fetches the country codes data from the JSON file, and then uses the countryCode variable to get the URL of the SVG flag for the United States. The flagUrl variable uses string interpolation to construct the URL, and the w80 part of the URL specifies the width of the flag in pixels.
-
-////The code then creates an <img> element to display the flag, sets the src attribute of the <img> element to the flagUrl variable, and adds the <img> element to the flagContainer element on the page.
-
-//You can replace the countryCode variable with any country code from the JSON data to display the flag for that country
-
+    
   })
   .catch(error => {
     console.error('Error fetching country codes:', error);

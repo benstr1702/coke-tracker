@@ -9,14 +9,27 @@
 }
 
 #search-bar{
-    width: 50vw;
+    width: 20vw;
 }
-
 
 
 #search-button{
     color: white;
 }
 #links{
-    margin-right: 2%;
+    margin-right: 5%;
 }
+#warning{
+    color: red;
+    display: none;
+    
+}
+#nav-link{
+    margin-right: 20px;
+}
+.card{
+    margin-top: 25px;
+    width: 30rem !important;
+    height: 20rem !important;
+}
+
