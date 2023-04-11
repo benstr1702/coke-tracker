@@ -33,7 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch('https://flagcdn.com/en/codes.json');
       const countryCodes = await response.json();
+      console.log(countryCodes);
       // Do something with the country codes data
+      const countryCode = Object.keys(countryCodes);
+      const countryName = Object.values(countryCodes).map(name => name.toUpperCase());
+      console.log(countryCode,countryName);
+      // for (var code in countryCodes){
+        
+      // }
 
     } catch (error) {
       console.error('Error fetching country codes:', error);
