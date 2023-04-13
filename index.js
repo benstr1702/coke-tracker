@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const index = keys.indexOf(searchTerm);
     if (index !== -1) {
       document.getElementById('warning').style.display = 'none';
-      console.log(`The price of coke in ${searchTerm} is ${price[index]} $`);
+      //console.log(`The price of coke in ${searchTerm} is ${price[index]} $`);
     } else {
       document.getElementById('warning').style.display = 'block';
     }
@@ -33,14 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch('https://flagcdn.com/en/codes.json');
       const countryCodes = await response.json();
-      console.log(countryCodes);
-      // Do something with the country codes data
-      const countryCode = Object.keys(countryCodes);
-      const countryName = Object.values(countryCodes).map(name => name.toUpperCase());
-      console.log(countryCode,countryName);
-      // for (var code in countryCodes){
+      const flagImage = document.getElementById('flag-image');
+      
+      for (const key in countryCodes){
+        if (countryCodes[key].toUpperCase() === searchTerm){
+          console.log(`found it , the code is ${key}`)
+          flagImage.src = `https://flagcdn.com/w160/${key}.png` ; 
+          flagImage.srcset = `https://flagcdn.com/w320/${key}.png 2x`
+        }
+       }
+    
+      
+     
         
-      // }
+      
 
     } catch (error) {
       console.error('Error fetching country codes:', error);
